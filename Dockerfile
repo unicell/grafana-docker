@@ -9,6 +9,8 @@ RUN apt-get update && \
     dpkg -i /tmp/grafana.deb && \
     rm /tmp/grafana.deb
 
+ADD conf/logrotate /etc/logrotate.d/graphite
+
 VOLUME ["/var/lib/grafana", "/var/log/grafana", "/etc/grafana"]
 
 EXPOSE 3000
